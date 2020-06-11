@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>my-vignette</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">my-vignette</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(blblm)</a></code></pre></div>
+<p>###For more details on a spcific function, type ?blblm for example.</p>
+<div id="vignette" class="section level2">
+<h2>1) Vignette:</h2>
+<p>The first change I made to the base package was adding this vignette. I will outline any further changes that I make to the package here,along with an explanation of the implementation and purpose of each of the changes.</p>
+</div>
+<div id="blblm-parallelization" class="section level2">
+<h2>2) BLBLM Parallelization:</h2>
+<p>The Second way that the package blblm is modified is the addition of the ability to use parallelization to compute the linear model coefficients. This is done by using the function blblm_par(formula,data,m,B,ncores) as apposed to the single-core variant, blblm(formula,data,m,B). The user can specify the value of ncores to be between 1 and the maximum nunber of cores they have available on their computer. This function, blblm_par, uses the furrr package, and the functions future_map and plan in order to compute the linear model traits across each of the m groups the data is divided into, B times by bootstrapping. The tasks are split across the number of cores speicified for ncores.</p>
+<p>Note: This function is not always faster than blblm, and is often slower than blblm when the data set or number of bootstraps selected is small.</p>
+<p>Example: fit &lt;- blblm_par(mpg ~ wt * hp, data = mtcars, m = 3, B = 100, 2) coef(fit)</p>
+</div>
+<div id="parallel-benchmarks" class="section level2">
+<h2>3) Parallel Benchmarks:</h2>
+<p>The third improvement made to the base package blblm is the addition of a function to benchmark and compare the runtime and memory usage of both blblm and blblm_par. This is done through the function blblm_benchmarks(formula, data, m, B). This function takes in the same arguments as blblm, and it first acquires the number of cores that your computer has available to the user, and sets it equal to max_cores. It then runs blblm, the single-core variant and saves the runtime and memory usage. Then it calculates the runtime and memory usage for 2 through the maximimum number of cores that your computer has in order to see a comparison between single and parallel computing. Finally, it returns a dataframe containing the runtime and the memory used to compute the lm in both the single-core variant, and for the parallel with 2 through max_cores number of cores used.</p>
+<p>Example: blblm_benchmarks(mpg ~ wt * hp, data = mtcars, m = 3, B = 100)</p>
+</div>
+<div id="logistic-regression" class="section level2">
+<h2>4) Logistic regression:</h2>
+<p>The Fourth improvement I made to the base package blblm is adding a function to allow the user to compute the coefficients and other characteristics of a dataseet using a logistic regression model. This is done by using the function blb_logreg(formula, data, m = 3, B = 5000). Note that in the formula, the response variable should be in the form 0/1 as the logistic regression model is a binary classifier. It uses a very similar structure to blblm in order to divide the data into m roughly equal sizes, bootstrap the data, and calculate the coefficients, sigma, etc. It is recommended to either use the default m = 3, or a small number for m, as this will keep the group sizes large, which will minimize the risk of the data being unseparble due to anomolies or perfectly separable, giving non reliable estimates.</p>
+<p>Example: data &lt;- iris labels &lt;- rep(0:1,75) data$Species &lt;- labels fit &lt;- blb_logreg(Species ~ Petal.Length * Sepal.Length, data = data, m = 2, B = 100) coef(fit)</p>
+</div>
+<div id="user-selected-files" class="section level2">
+<h2>5) User-selected files:</h2>
+<p>The next improvement I mnade to the base package was adding the ability for the user to specify which files to use as the data. This is done by the function input_file, which takes in the pathname of the location where the data is found. The user performs this by specifying the location of folder containing csv files, and the function will read all of the csv files and use them as the data_files, rather than randomly splitting the data into m groups. To use this function, run blblm_par_user(formula,path,ncores, B), where the path is set to the directory of the folder containing the csv files.</p>
+<p>Example: dir.create(“files”, showWarnings = FALSE) 1:100 %&gt;% walk(function(i) { dt &lt;- data.frame(x = rnorm(5000), y = rnorm(5000)) write_csv(dt, file.path(“files”, sprintf(“file%02d.csv”, i))) }) fit &lt;- blblm_par_user(y ~ x, path = ‘files’,ncores = 2, B = 100) co &lt;- coef(fit)</p>
+</div>
+<div id="documentation-and-descriptions" class="section level2">
+<h2>6) Documentation and Descriptions:</h2>
+<p>Added extensive documentation for each of the functions, inlcuding a name, a description, the input paramters, the return, and examples. This gives the user a more detailed view into each function that they are interested in.</p>
+<p>Example: ?blblm</p>
+</div>
+<div id="tests" class="section level2">
+<h2>7) Tests:</h2>
+<p>Added tests for every function that I added to the package to verify that each work properly. I also added tests for several of the already existing functions.</p>
+<p>Example: test-blblm.r</p>
+</div>
+<div id="check" class="section level2">
+<h2>8) Check():</h2>
+<p>The package passes check() with one note pertaining to the directory used for the files used in the blm_par_use(user-selected file, parallel blblm), and the tests for all of the functions pass.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

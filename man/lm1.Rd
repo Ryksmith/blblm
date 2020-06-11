@@ -2,10 +2,19 @@
 % Please edit documentation in R/blblm.R
 \name{lm1}
 \alias{lm1}
-\title{estimate the regression estimates based on given the number of repetitions}
+\title{Estimate Coefficients}
 \usage{
 lm1(formula, data, freqs)
 }
+\arguments{
+\item{formula}{The input Formula.}
+
+\item{data}{The input dataframe,}
+
+\item{freqs}{The frequencies to use as weights in the lm.}
+}
 \description{
-estimate the regression estimates based on given the number of repetitions
+Estimate the regression estimates based on given the number of repetitions and with weights from
+lm_each_boot. Uses the lm function for linear regression estimation. Returns the estimated coefficients
+along with the estimated sigma(Standard deviation).
 }

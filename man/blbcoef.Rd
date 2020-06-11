@@ -2,10 +2,13 @@
 % Please edit documentation in R/blblm.R
 \name{blbcoef}
 \alias{blbcoef}
-\title{compute the coefficients from fit}
+\title{Grabs coefficients}
 \usage{
 blbcoef(fit)
 }
+\arguments{
+\item{fit}{The fitted linear regression model from lm().}
+}
 \description{
-compute the coefficients from fit
+Grabs the estimated regression coefficients from the fitted linear regression model.
 }

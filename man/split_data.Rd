@@ -6,6 +6,11 @@
 \usage{
 split_data(data, m)
 }
+\arguments{
+\item{data}{Dataframe to be split.}
+
+\item{m}{Number of splits to be made.}
+}
 \description{
-split data into m parts of approximated equal sizes
+Splits the input dataframe into m approximately equal sizes randomly.
 }

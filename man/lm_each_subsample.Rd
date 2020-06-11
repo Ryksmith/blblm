@@ -6,6 +6,15 @@
 \usage{
 lm_each_subsample(formula, data, n, B)
 }
+\arguments{
+\item{formula}{Regression formula}
+
+\item{data}{Input data frames.}
+
+\item{n}{Total number of data points}
+
+\item{B}{Number of bootstraps to be performed.}
+}
 \description{
-compute the estimates
+Calls the function lm_each_boot B times, with B corresponding to the number of bootstraps.
 }

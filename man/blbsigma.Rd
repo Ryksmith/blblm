@@ -2,10 +2,13 @@
 % Please edit documentation in R/blblm.R
 \name{blbsigma}
 \alias{blbsigma}
-\title{compute sigma from fit}
+\title{Compute sigma from fit}
 \usage{
 blbsigma(fit)
 }
+\arguments{
+\item{fit}{The linear regression model from lm().}
+}
 \description{
-compute sigma from fit
+Computed the standard deviation estimation from the fitted linear regression model.
 }
